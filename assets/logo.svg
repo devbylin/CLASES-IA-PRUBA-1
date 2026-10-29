@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Definición de Paleta de Colores -->
+  <defs>
+    <style>
+      .primary-color { fill: #102DCC; }
+      .secondary-color { fill: #10C3CC; }
+      .text-primary { fill: #102DCC; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: bold; }
+      .text-secondary { fill: #10C3CC; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- ISOTIPO: Escudo Institucional -->
+  <g transform="translate(0, -10)">
+    <!-- Borde Exterior Escudo (Azul Primario) -->
+    <path class="primary-color" d="M250,90 C290,90 330,105 330,105 C330,105 340,210 250,265 C160,210 170,105 170,105 C170,105 210,90 250,90 Z" opacity="0.15" />
+    
+    <!-- Mitad Izquierda del Escudo (Azul Primario) -->
+    <path class="primary-color" d="M250,100 C215,100 180,112 180,112 C180,112 170,200 250,250 L250,100 Z" />
+    
+    <!-- Mitad Derecha del Escudo (Azul Secundario) -->
+    <path class="secondary-color" d="M250,100 C285,100 320,112 320,112 C320,112 330,200 250,250 L250,100 Z" />
+  </g>
+
+  <!-- LOGOTIPO: Tipografía Institucional -->
+  <g text-anchor="middle">
+    <!-- Nombre Principal -->
+    <text x="250" y="320" class="text-primary" font-size="42" letter-spacing="2">SAUL S.A.</text>
+    
+    <!-- Bajada Corporativa -->
+    <text x="250" y="355" class="text-primary" font-size="16" letter-spacing="4" font-weight="normal">FINANCIAL INSTITUTION</text>
+    <text x="250" y="380" class="text-secondary" font-size="18" letter-spacing="6">BANK</text>
+  </g>
+</svg>

@@ -1,0 +1,198 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102dcc">
+  <meta name="description" content="Acceso de demostración a la banca en línea de SAUL S.A.">
+  <title>Banca en Línea | SAUL S.A.</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="login.js" defer></script>
+</head>
+<body>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-fingerprint" viewBox="0 0 24 24"><path d="M4 10a8 8 0 0 1 16 0M7 19c1-3 0-5 0-8a5 5 0 0 1 10 0c0 5-1 8-2 10M3 14v-2m8 9c2-4 2-7 2-10a1 1 0 0 0-2 0c0 3 .2 5-1 7m10-4c0 2-.3 4-1 6"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m6 12 4 4 8-8"/></symbol>
+  </svg>
+
+  <main class="page">
+<section id="login-panel" class="card" aria-labelledby="login-title">
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="card-heading">
+        <h1 id="login-title">Banca en Línea</h1>
+        <p>Bienvenido. Ingresa para continuar.</p>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="email">Correo electrónico corporativo o personal</label>
+          <div class="input-wrapper">
+            <span class="email-icon" aria-hidden="true">@</span>
+            <input id="email" name="email" type="email" autocomplete="username" inputmode="email" placeholder="nombre@dominio.com" required aria-describedby="email-error" autocapitalize="none" spellcheck="false">
+          </div>
+          <p id="email-error" class="field-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="password">Contraseña</label>
+            <button class="text-button small" type="button" data-view="recovery">¿Olvidó su usuario o contraseña?</button>
+          </div>
+          <div class="input-wrapper">
+            <svg class="icon input-icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Ingresa tu contraseña" required aria-describedby="password-error">
+            <button id="toggle-password" class="icon-button" type="button" aria-label="Mostrar contraseña" aria-pressed="false" aria-controls="password">
+              <svg class="icon" aria-hidden="true"><use href="#icon-eye"/><path id="eye-slash" d="m3 3 18 18" hidden/></svg>
+            </button>
+          </div>
+          <p id="password-error" class="field-error" hidden></p>
+        </div>
+
+        <p id="login-message" class="form-message" role="alert" hidden></p>
+        <button id="submit-login" class="button primary" type="submit">
+          <span id="submit-label">Ingresar a Banca en Línea</span>
+          <svg id="submit-arrow" class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg>
+          <span id="login-spinner" class="spinner" hidden aria-hidden="true"></span>
+        </button>
+        <p id="login-status" class="sr-only" role="status"></p>
+
+        <div class="divider"><span>o accede con</span></div>
+        <button id="biometric-login" class="button secondary" type="button" data-dialog="biometric">
+          <svg class="icon" aria-hidden="true"><use href="#icon-fingerprint"/></svg>
+          <span>Ingresar con biometría <span class="button-detail">(Face ID / Huella)</span></span>
+        </button>
+        <p class="register-prompt">¿No tienes una cuenta? <button class="text-button" type="button" data-view="registration">Regístrate aquí</button></p>
+      </form>
+    </section>
+
+    <aside id="demo-panel" class="demo-card" aria-label="Credenciales de demostración">
+      <div class="demo-heading"><span class="eyebrow">PRUEBA EL ACCESO</span><button id="fill-demo" type="button" class="text-button small">Usar datos de prueba <span aria-hidden="true">↗</span></button></div>
+      <dl><div><dt>Correo</dt><dd>demo@saulbank.com</dd></div><div><dt>Contraseña</dt><dd>SaulDemo2026!</dd></div></dl>
+      <p>Usa datos ficticios. Si cambiaste la contraseña de prueba, ingresa la nueva.</p>
+    </aside>
+
+    <section id="welcome-panel" class="card welcome-card" aria-labelledby="welcome-title" hidden>
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="success-mark"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></div>
+      <span class="eyebrow">ACCESO COMPLETADO</span>
+      <h1 id="welcome-title" tabindex="-1">¡Bienvenido!</h1>
+      <p>Has iniciado sesión en el entorno de demostración.</p>
+      <div class="account-summary"><span>Cuenta de prueba</span><strong id="session-email"></strong><span class="session-tag"><span class="status-dot"></span> Sesión demo activa</span></div>
+      <p class="welcome-note">Esta es la pantalla inicial de tu proyecto. Aquí podrás incorporar los servicios de tu aplicación.</p>
+      <button id="logout" class="button primary" type="button">Cerrar sesión <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+    </section>
+
+    <section id="registration-panel" class="card" aria-labelledby="registration-title" hidden>
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="step-heading"><span class="step-badge">1 de 2 · Datos personales</span><h1 id="registration-title" tabindex="-1">Ingreso de Nuevos Clientes</h1><p>Crea tu cuenta para comenzar.</p></div>
+      <form id="registration-form" class="registration-form" novalidate>
+        <div class="field"><label for="first-name">Nombre <span class="required">*</span></label><input id="first-name" name="given-name" autocomplete="given-name" placeholder="Ej. Roberto" maxlength="70" required aria-describedby="first-name-error"><p id="first-name-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="last-name">Apellido <span class="required">*</span></label><input id="last-name" name="family-name" autocomplete="family-name" placeholder="Ej. González" maxlength="70" required aria-describedby="last-name-error"><p id="last-name-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="identity">Documento de identidad <span class="required">*</span></label><input id="identity" name="identity" placeholder="Ingresa tu documento" maxlength="30" required aria-describedby="identity-error"><p id="identity-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="phone">Número telefónico <span class="required">*</span></label><input id="phone" name="tel" type="tel" autocomplete="tel" placeholder="Ej. +593 99 123 4567" maxlength="30" required aria-describedby="phone-error"><p id="phone-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="register-email">Correo electrónico <span class="required">*</span></label><input id="register-email" name="email" type="email" autocomplete="email" placeholder="ejemplo@dominio.com" maxlength="254" required autocapitalize="none" spellcheck="false" aria-describedby="register-email-error"><p id="register-email-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="register-password">Contraseña <span class="required">*</span></label><div class="input-wrapper"><input id="register-password" name="new-password" type="password" autocomplete="new-password" placeholder="Crea tu contraseña" maxlength="128" required aria-describedby="register-password-error security-requirements"><button class="icon-button" type="button" data-toggle="register-password" aria-label="Mostrar contraseña" aria-controls="register-password" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg></button></div><p id="register-password-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="confirm-password">Confirmar contraseña <span class="required">*</span></label><div class="input-wrapper"><input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" placeholder="Repite tu contraseña" maxlength="128" required aria-describedby="confirm-password-error"><button class="icon-button" type="button" data-toggle="confirm-password" aria-label="Mostrar contraseña" aria-controls="confirm-password" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg></button></div><p id="confirm-password-error" class="field-error" hidden></p></div>
+        <div id="security-requirements" class="security-requirements"><strong>REQUISITOS DE SEGURIDAD</strong><ul><li data-rule="length">Mínimo 8 caracteres</li><li data-rule="case">Letras mayúsculas y minúsculas</li><li data-rule="number">Al menos un número</li><li data-rule="special">Al menos 1 carácter especial</li></ul></div>
+        <p id="registration-message" class="form-message" role="alert" hidden></p>
+        <button class="button primary" type="submit">Continuar registro <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+      </form>
+      <p class="flow-link"><button class="text-button" type="button" data-view="login">¿Ya posees una cuenta? Iniciar sesión →</button></p>
+    </section>
+
+    <section id="otp-panel" aria-labelledby="otp-title" hidden>
+      <div class="card otp-card">
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+        <button id="otp-back" class="back-button" type="button">← Volver</button>
+        <span class="step-badge" id="otp-step">2 de 2 · Verificación</span>
+        <h1 id="otp-title" tabindex="-1">Confirmar correo electrónico</h1>
+        <p id="otp-description" class="flow-description">Ingresa el código de seguridad de 6 dígitos para confirmar tu cuenta.</p>
+        <div class="delivery-box"><span class="delivery-icon" aria-hidden="true">@</span><div><span>Correo de verificación</span><strong id="otp-destination"></strong></div></div>
+        <form id="otp-form" novalidate>
+          <fieldset class="otp-fieldset"><legend>CÓDIGO DE 6 DÍGITOS (OTP)</legend><div class="otp-inputs">
+            <input id="otp-1" class="otp-digit" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Dígito 1 de 6" aria-describedby="otp-message">
+            <input id="otp-2" class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 2 de 6" aria-describedby="otp-message">
+            <input id="otp-3" class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 3 de 6" aria-describedby="otp-message">
+            <input id="otp-4" class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 4 de 6" aria-describedby="otp-message">
+            <input id="otp-5" class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 5 de 6" aria-describedby="otp-message">
+            <input id="otp-6" class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6 de 6" aria-describedby="otp-message">
+          </div></fieldset>
+          <p id="otp-message" class="form-message" role="alert" hidden></p>
+          <div class="resend-block"><p>¿No recibiste el código? <span id="resend-countdown"></span></p><button id="resend-otp" class="text-button" type="button" disabled>Reenviar código</button><p id="otp-status" role="status"></p></div>
+          <aside class="otp-demo"><span class="eyebrow">CÓDIGO DE PRUEBA · SIN ENVÍO DE CORREO</span><strong id="demo-otp"></strong><p>Válido durante 5 minutos. Usa solo datos ficticios.</p></aside>
+          <button class="button primary" type="submit">Validar y continuar <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+          <button class="text-button" type="button" data-view="login">Volver al inicio de sesión</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="recovery-panel" class="card" aria-labelledby="recovery-title" hidden>
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="card-heading"><h1 id="recovery-title" tabindex="-1">Recupera tu acceso</h1><p>Verifica tu identidad con el correo que registraste.</p></div>
+      <form id="recovery-form" novalidate>
+        <fieldset class="recovery-options"><legend>¿Qué necesitas recuperar?</legend><label><input type="radio" name="recovery-kind" value="password" checked> Mi contraseña</label><label><input type="radio" name="recovery-kind" value="username"> Mi usuario</label></fieldset>
+        <div class="field"><label for="recovery-email">Correo electrónico registrado</label><input id="recovery-email" name="email" type="email" autocomplete="email" placeholder="nombre@dominio.com" required maxlength="254" autocapitalize="none" spellcheck="false" aria-describedby="recovery-email-error"><p id="recovery-email-error" class="field-error" hidden></p></div>
+        <p class="flow-description">Tu correo electrónico es tu usuario. Confírmalo con un código OTP para recuperar el acceso.</p>
+        <p id="recovery-message" class="form-message" role="alert" hidden></p>
+        <button class="button primary" type="submit">Continuar con verificación <svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+        <button class="text-button" type="button" data-view="login">Volver al inicio de sesión</button>
+      </form>
+    </section>
+
+    <section id="reset-panel" class="card" aria-labelledby="reset-title" hidden>
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="card-heading"><h1 id="reset-title" tabindex="-1">Nueva contraseña</h1><p>Correo verificado. Elige una nueva contraseña.</p></div>
+      <form id="reset-form" novalidate>
+        <div class="field"><label for="reset-password">Nueva contraseña</label><div class="input-wrapper"><input id="reset-password" type="password" autocomplete="new-password" placeholder="Crea tu nueva contraseña" required maxlength="128" aria-describedby="reset-password-error reset-requirements"><button class="icon-button" type="button" data-toggle="reset-password" aria-label="Mostrar contraseña" aria-controls="reset-password" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg></button></div><p id="reset-password-error" class="field-error" hidden></p></div>
+        <div class="field"><label for="reset-confirm">Confirmar contraseña</label><div class="input-wrapper"><input id="reset-confirm" type="password" autocomplete="new-password" placeholder="Repite la nueva contraseña" required maxlength="128" aria-describedby="reset-confirm-error"><button class="icon-button" type="button" data-toggle="reset-confirm" aria-label="Mostrar contraseña" aria-controls="reset-confirm" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg></button></div><p id="reset-confirm-error" class="field-error" hidden></p></div>
+        <p id="reset-requirements" class="flow-description">Mínimo 8 caracteres con mayúsculas, minúsculas, un número y un carácter especial.</p>
+        <p id="reset-message" class="form-message" role="alert" hidden></p>
+        <button class="button primary" type="submit">Guardar nueva contraseña</button>
+        <button class="text-button" type="button" data-view="login">Volver al inicio de sesión</button>
+      </form>
+    </section>
+
+    <section id="recovered-panel" class="card welcome-card" aria-labelledby="recovered-title" hidden>
+      <header class="brand">
+        <img class="brand-logo" src="assets/logo.svg" alt="SAUL S.A. Financial Institution Bank" width="180" height="128">
+        <span class="environment-badge"><span class="status-dot"></span> Entorno de demostración</span>
+      </header>
+      <div class="success-mark"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></div>
+      <h1 id="recovered-title" tabindex="-1">Usuario recuperado</h1><p>Verificaste tu correo. Este es tu usuario para iniciar sesión:</p><div class="account-summary"><strong id="recovered-email"></strong></div><button id="recovered-login" class="button primary" type="button">Ir a iniciar sesión</button>
+    </section>
+
+    <p id="app-status" class="sr-only" role="status"></p>
+    <p id="storage-notice" class="storage-notice" role="status" hidden>El navegador no permite guardar datos. Las cuentas de prueba se conservarán solo hasta recargar esta página.</p>
+
+    <footer><p class="footer-caption"><svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg> Tu siguiente paso comienza aquí</p><p>© <span id="year">2026</span> Saul S.A. Financial Institution Bank.<br>Todos los derechos reservados.</p></footer>
+  </main>
+
+  <dialog id="info-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <div class="dialog-content"><span class="eyebrow">SAUL S.A. · DEMOSTRACIÓN</span><h2 id="dialog-title"></h2><p id="dialog-description"></p><button id="close-dialog" class="button primary" type="button">Entendido</button></div>
+  </dialog>
+  <noscript><p class="noscript-message">Activa JavaScript en tu navegador para utilizar este login de demostración.</p></noscript>
+</body>
+</html>
+
